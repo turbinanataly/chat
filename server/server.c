@@ -24,7 +24,7 @@ int main(int argc, char** argv)
 	if (sock_fd < 0)
 		printf("socket error!\n");
 
-	if(bind(sock_fd,(struct sockaddr*)&sock_addr, sizeof(sock_addr) < 0))
+	if(bind(sock_fd,(struct sockaddr*)&sock_addr, sizeof(sock_addr)) < 0)
 	{
 		printf("Error bind\n");
 		return -1;
