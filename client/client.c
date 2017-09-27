@@ -35,8 +35,9 @@ int main(int argc, char** argv)
 	
 	while(1)
 	{
+		printf("input message: ");
 		scanf("%s", client_message);
-		printf("send: %s\n", client_message);
+
 		if(send(sock_fd, client_message, strlen(client_message), 0) < 0)
 		{
 			printf("error sending message: %s\n", client_message);
@@ -47,11 +48,11 @@ int main(int argc, char** argv)
 		bzero(server_reply, MESSAGE_SIZE);
 		if( recv(sock_fd, server_reply, MESSAGE_SIZE, 0) < 0)
 		{
-			printf("error recv message");
+			printf("error recv message\n");
                         close(sock_fd);
                         return -1;
 		}
-		printf("recv: %s\n", server_reply);
+		printf("answer: %s\n", server_reply);
 	}
 	close(sock_fd);
         return 0;
